@@ -1,0 +1,55 @@
+
+RECEBENDO ALTERAÇÕES (PULL)
+Aqui estão os passos detalhados:
+
+Abra o terminal integrado do VS Code: Vá em "Terminal" > "Novo Terminal".
+Navegue até a pasta do seu projeto: Use o comando cd <caminho_para_seu_projeto> para entrar na pasta raiz do seu projeto SOAM.
+Verifique o branch atual: Use o comando git branch para verificar em qual branch você está trabalhando (deve ser "main" neste caso).
+Execute o comando git pull: Digite git pull origin main e pressione Enter.
+Explicação dos comandos:
+
+git pull: Baixa as alterações do repositório remoto.
+origin: Especifica o repositório remoto do qual você deseja baixar as alterações (no caso, o repositório do GitHub).
+main: Especifica o branch do repositório remoto que você deseja baixar (o branch "main").
+O que acontece após o git pull:
+
+O Git baixa as alterações do branch "main" do repositório remoto.
+O Git mescla essas alterações com seu branch "main" local.
+Se houver conflitos (alterações no mesmo arquivo que o Git não consegue mesclar automaticamente), você precisará resolvê-los manualmente.
+Para resolver conflitos:
+
+O VS Code mostrará os arquivos com conflitos.
+Abra os arquivos com conflitos e procure por marcadores de conflito (como <<<<<<<, ======= e >>>>>>>).
+Edite os arquivos para resolver os conflitos e remova os marcadores de conflito.
+Adicione os arquivos resolvidos à área de preparação com git add <nome_do_arquivo>.
+Faça um commit com git commit -m "Resolvendo conflitos".
+Dicas:
+
+É sempre bom fazer um git status antes de fazer o git pull para ver se há alterações locais que você precisa commitar ou descartar.
+Se você estiver trabalhando em um branch diferente do "main", substitua "main" pelo nome do branch no comando git pull.
+Lembre de fazer o git pull sempre que for iniciar seus trabalhos no vs code, para que seu repositório local esteja sempre atualizado.
+
+
+Enviando alterações (PUSH)
+
+Verifique as alterações:
+No terminal do VS Code, execute o comando git status. Isso mostrará quais arquivos foram modificados, adicionados ou removidos.
+Adicione as alterações à área de preparação (staging area):
+Use o comando git add . para adicionar todas as alterações ou git add <nome_do_arquivo> para adicionar arquivos específicos.
+
+Faça um commit:
+Execute o comando git commit -m "Mensagem descritiva das alterações". Substitua "Mensagem descritiva das alterações" por uma mensagem clara e concisa que descreva as mudanças que você fez.
+Envie as alterações para o GitHub:
+Execute o comando git push origin main. Isso enviará os commits do seu branch "main" local para o branch "main" do repositório remoto no GitHub.
+
+Resumo dos comandos:
+git status: Mostra o status das alterações no seu repositório local.
+git add .: Adiciona todas as alterações à área de preparação.
+git commit -m "Mensagem": Cria um commit com as alterações preparadas.
+git push origin main: Envia os commits para o repositório remoto no GitHub.
+Dicas adicionais:
+
+Mensagens de commit: Escreva mensagens de commit claras e informativas. Isso ajudará você e outros colaboradores a entenderem as alterações feitas em cada commit.
+Branches: Use branches para trabalhar em novas funcionalidades ou correções de bugs sem afetar o branch "main". Quando terminar, você pode mesclar as alterações do branch para o "main".
+Pull requests: Se você estiver colaborando com outras pessoas, use pull requests para revisar e mesclar as alterações.
+
