@@ -12,7 +12,7 @@ class Plano extends Model
     protected $table = 'planos';
 
     protected $fillable = [
-        'nome', 'valor', 'duracao'
+        'nome', 'valor', 'duracao_meses'
     ];
 
     // Relacionamento 1:N - Um plano pode ter vários alunos cadastrados nele

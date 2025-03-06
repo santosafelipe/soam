@@ -18,6 +18,11 @@
             <input type="number" name="valor" step="0.01" class="form-control" required>
         </div>
 
+        <div class="mb-3">
+            <label for="duracao_meses" class="form-label">Duração</label>
+            <input type="number" name="duracao_meses" step="0.01" class="form-control" required>
+        </div>
+
         <button type="submit" class="btn btn-success">Salvar Plano</button>
         <a href="{{ route('planos.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>

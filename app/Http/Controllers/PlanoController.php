@@ -33,12 +33,14 @@ class PlanoController extends Controller
         $request->validate([
             'nome' => 'required|string|max:255',
             'valor' => 'required|numeric|min:0',
+            'duracao_meses' => 'required|numeric|min:0',
         ]);
 
         // Cria um novo plano com os dados do formulário
         Plano::create([
             'nome' => $request->nome,
             'valor' => $request->valor,
+            'duracao_meses' => $request->duracao_meses,
         ]);
 
         // Redireciona para a listagem de planos com mensagem de sucesso
