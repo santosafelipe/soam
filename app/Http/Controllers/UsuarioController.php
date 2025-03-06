@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario; // Importa o Model Usuario
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -32,14 +33,29 @@ class UsuarioController extends Controller
         // Valida os dados enviados pelo formulário
         $request->validate([
             'nome' => 'required|string|max:255',
-            'email' => 'required|email|unique:usuarios',
-            'cpf' => 'required|unique:usuarios',
-            'telefone' => 'nullable|string|max:20',
+            'email' => 'required|email|unique:usuarios,email',
+            'senha' => 'required|string|min:6',
+            'telefone' => 'nullable|string|max:255',
+            'cpf' => 'required|string|unique:usuarios,cpf|max:255',
+            'cep' => 'nullable|string|max:255',
             'endereco' => 'nullable|string|max:255',
+            'data_nascimento' => 'nullable|date',
+            'tipo' => 'required|in:admin,gestor,instrutor,aluno',
         ]);
 
-        // Cria um novo usuário no banco
-        Usuario::create($request->all());
+    
+        // Criação do usuário no banco de dados
+        Usuario::create([
+            'nome' => $request->nome,
+            'email' => $request->email,
+            'senha' => Hash::make($request->senha), // Criptografa a senha antes de salvar
+            'telefone' => $request->telefone,
+            'cpf' => $request->cpf,
+            'cep' => $request->cep,
+            'endereco' => $request->endereco,
+            'data_nascimento' => $request->data_nascimento,
+            'tipo' => $request->tipo,
+        ]);
 
         return redirect()->route('usuarios.index')->with('success', 'Usuário cadastrado com sucesso!');
     }

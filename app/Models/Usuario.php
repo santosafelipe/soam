@@ -15,13 +15,21 @@ class Usuario extends Authenticatable
 
     // Define os campos que podem ser preenchidos em massa (mass assignment)
     protected $fillable = [
-        'nome', 'email', 'senha', 'cpf', 'telefone', 'tipo_usuario'
+        'nome', 'email', 'senha', 'telefone', 'cpf', 'cep', 'endereco', 'data_nascimento', 'tipo'
     ];
 
     // Esconde campos sensíveis quando o modelo for convertido em JSON ou Array
     protected $hidden = [
         'senha',
     ];
+
+    /**
+     * Define que o campo "senha" deve ser criptografado automaticamente.
+     */
+    public function setSenhaAttribute($value)
+    {
+        $this->attributes['senha'] = bcrypt($value);
+    }
 
     // Relacionamento 1:1 - Um usuário pode ser um aluno
     public function aluno()
