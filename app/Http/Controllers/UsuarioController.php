@@ -91,6 +91,8 @@ class UsuarioController extends Controller
             'email' => 'required|email|unique:usuarios,email,'.$usuario->id,
             'cpf' => 'required|unique:usuarios,cpf,'.$usuario->id,
             'telefone' => 'nullable|string|max:20',
+            'data_nascimento' => 'nullable|date',
+            'cep' => 'nullable|string|max:255',
             'endereco' => 'nullable|string|max:255',
         ]);
 

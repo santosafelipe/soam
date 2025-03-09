@@ -35,3 +35,7 @@ Route::prefix('planos')->group(function () {
     Route::put('/update/{id}', [PlanoController::class, 'update'])->name('planos.update'); // Atualizar plano
     Route::delete('/destroy/{id}', [PlanoController::class, 'destroy'])->name('planos.destroy'); // Excluir plano
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
