@@ -21,6 +21,12 @@
                 </ul>
             </div>
         </div>
+
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
+        
     </nav>
 
     <div class="container mt-4">

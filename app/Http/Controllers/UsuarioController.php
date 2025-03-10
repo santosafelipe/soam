@@ -48,7 +48,7 @@ class UsuarioController extends Controller
         Usuario::create([
             'nome' => $request->nome,
             'email' => $request->email,
-            'senha' => Hash::make($request->senha), // Criptografa a senha antes de salvar
+            'senha' => $request->senha, // Criptografa da senha no model com setSenhaAtribute()
             'telefone' => $request->telefone,
             'cpf' => $request->cpf,
             'cep' => $request->cep,

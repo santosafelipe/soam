@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PlanoController;
+use App\Http\Controllers\HomeController;
 
 /**
  * Rota inicial do sistema
@@ -39,3 +41,8 @@ Route::prefix('planos')->group(function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');

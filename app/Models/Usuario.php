@@ -24,6 +24,14 @@ class Usuario extends Authenticatable
     ];
 
     /**
+     * Retorna a senha para autenticação no Laravel.
+     */
+    public function getAuthPassword()
+    {
+        return $this->attributes['senha'];
+    }
+
+    /**
      * Define que o campo "senha" deve ser criptografado automaticamente.
      */
     public function setSenhaAttribute($value)
